@@ -2,6 +2,12 @@
 import Base from '../layouts/Base.astro';
 import { site } from '../data/site';
 import { publications, talks } from '../data/publications';
+
+// Bold the site owner's name in author lists.
+const escapeHtml = (s: string) =>
+  s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const boldMe = (authors: string) =>
+  escapeHtml(authors).replace(/Boeve, S\./g, '<strong>Boeve, S.</strong>');
 ---
 <Base title="Publications | Sam Boeve" description="Peer-reviewed articles, preprints and talks by Sam Boeve on predictive reading, language models and statistical learning.">
   <h1 class="page-title">Publications</h1>
@@ -15,7 +21,7 @@ import { publications, talks } from '../data/publications';
         <div class="year">{p.year}</div>
         <div class="body">
           <div class="title">{p.title}</div>
-          <div class="sub">{p.authors}</div>
+          <div class="sub" set:html={boldMe(p.authors)}></div>
           <div class="sub"><em>{p.venue}</em> · <a href={p.url}>DOI / link</a></div>
         </div>
       </div>

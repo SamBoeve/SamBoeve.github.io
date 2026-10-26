@@ -24,9 +24,4 @@ export const site = {
 
   // CV file served from /public.
   cvFile: '/SamBoeve_CV.pdf',
-
-  // Privacy-friendly analytics, disabled until you fill this in.
-  //   Plausible:    { provider: 'plausible',   id: 'samboeve.github.io' }
-  //   GoatCounter:  { provider: 'goatcounter', id: 'your-goatcounter-code' }
-  analytics: { provider: 'plausible', id: 'samboeve.github.io' } as { provider: '' | 'plausible' | 'goatcounter'; id: string },
 };

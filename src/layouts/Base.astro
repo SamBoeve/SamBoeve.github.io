@@ -19,7 +19,6 @@ const nav = [
   { href: '/contact', label: 'Contact' },
 ];
 
-const { provider, id } = site.analytics;
 ---
 <!doctype html>
 <html lang="en">
@@ -40,12 +39,6 @@ const { provider, id } = site.analytics;
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
     />
-    {provider === 'plausible' && (
-      <script is:inline defer data-domain={id} src="https://plausible.io/js/script.js"></script>
-    )}
-    {provider === 'goatcounter' && (
-      <script is:inline data-goatcounter={`https://${id}.goatcounter.com/count`} async src="//gc.zgo.at/count.js"></script>
-    )}
   </head>
   <body>
     <header class="site-header">
@@ -76,7 +69,6 @@ const { provider, id } = site.analytics;
         <span>© {new Date().getFullYear()} {site.name}</span>
         <span>
           Ghent University · Department of General and Applied Psychology
-          {provider && ' · Privacy-friendly analytics, no cookies'}
         </span>
       </div>
     </footer>
