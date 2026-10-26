@@ -1,0 +1,15 @@
+---
+import Base from '../layouts/Base.astro';
+import { writing } from '../data/writing';
+import PieceCard from '../components/PieceCard.astro';
+---
+<Base title="Writing | Sam Boeve" description="Articles, blog posts and podcasts on language, AI and the mind for general audiences, in English and Dutch.">
+  <h1 class="page-title">Writing</h1>
+  <p class="page-intro">
+    Articles, blog posts and talks for general audiences, in English and Dutch. New posts will appear here.
+  </p>
+
+  <div class="stack">
+    {writing.map((w) => <PieceCard piece={w} wide showType />)}
+  </div>
+</Base>

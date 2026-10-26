@@ -1,0 +1,32 @@
+---
+import type { Piece } from '../data/writing';
+
+interface Props {
+  piece: Piece;
+  wide?: boolean;
+  showType?: boolean;
+}
+
+const { piece: w, wide = false, showType = false } = Astro.props;
+const meta = showType
+  ? `${w.type} · ${w.outlet} · ${w.year} · ${w.lang}`
+  : `${w.outlet} · ${w.year}`;
+const cls = wide ? 'card wide' : 'card';
+---
+{w.alt ? (
+  <div class={cls}>
+    <div class="meta">{meta}</div>
+    <h3>{w.title}</h3>
+    <p>{w.blurb}</p>
+    <div class="card-links">
+      <a href={w.url}>Read in English</a>
+      <a href={w.alt.url} lang="nl">{w.alt.label}</a>
+    </div>
+  </div>
+) : (
+  <a class={cls} href={w.url}>
+    <div class="meta">{meta}</div>
+    <h3>{w.title}</h3>
+    <p>{w.blurb}</p>
+  </a>
+)}

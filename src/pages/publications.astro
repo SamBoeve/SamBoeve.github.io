@@ -1,0 +1,37 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+import { publications, talks } from '../data/publications';
+---
+<Base title="Publications | Sam Boeve" description="Peer-reviewed articles, preprints and talks by Sam Boeve on predictive reading, language models and statistical learning.">
+  <h1 class="page-title">Publications</h1>
+  <p class="page-intro">
+    Full list on <a href={site.links.scholar}>Google Scholar</a>. Preprints are not yet peer reviewed.
+  </p>
+
+  <div class="panel">
+    {publications.map((p) => (
+      <div class="row">
+        <div class="year">{p.year}</div>
+        <div class="body">
+          <div class="title">{p.title}</div>
+          <div class="sub">{p.authors}</div>
+          <div class="sub"><em>{p.venue}</em> · <a href={p.url}>DOI / link</a></div>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <h2 class="head h2-lg">Talks</h2>
+  <div class="panel">
+    {talks.map((t) => (
+      <div class="row talk">
+        <div class="year">{t.year}</div>
+        <div class="body">
+          <strong>{t.title}</strong><br />
+          <span class="sub">{t.where}</span>
+        </div>
+      </div>
+    ))}
+  </div>
+</Base>

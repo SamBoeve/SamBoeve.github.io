@@ -1,0 +1,27 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+import { cv } from '../data/cv';
+---
+<Base title="CV | Sam Boeve" description="Curriculum vitae of Sam Boeve: positions, education, grants, teaching and service.">
+  <div class="cv-top">
+    <h1 class="page-title" style="margin:0">Curriculum vitae</h1>
+    <a class="btn btn-primary" href={site.cvFile}>Download CV (PDF)</a>
+  </div>
+
+  <div class="cv-groups">
+    {cv.map((g) => (
+      <div class="cv-group">
+        <h2 class="head">{g.heading}</h2>
+        <div class="cv-items">
+          {g.items.map((i) => (
+            <div class="cv-item">
+              <div class="when">{i.when}</div>
+              <div class="what"><strong>{i.what}</strong><br /><span>{i.detail}</span></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</Base>

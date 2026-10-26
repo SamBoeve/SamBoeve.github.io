@@ -1,0 +1,31 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+---
+<Base title="Contact | Sam Boeve" description="Get in touch for research collaboration, speaking or scientific writing.">
+  <h1 class="page-title">Contact</h1>
+  <p class="page-intro">
+    For research collaboration, speaking, or writing commissions, send me a short note and I'll reply within a few days.
+  </p>
+
+  <div class="two-col">
+    <div class="contact-card">
+      <h2 class="head">Reach me</h2>
+      <p><strong>Email:</strong> <a href={`mailto:${site.email}`}>{site.email}</a></p>
+      <p><strong>Google Scholar:</strong> <a href={site.links.scholar}>profile</a></p>
+      <p><strong>ResearchGate:</strong> <a href={site.links.researchgate}>profile</a></p>
+      <p><strong>ORCID:</strong> <a href={site.links.orcid}>{site.links.orcidId}</a></p>
+      <p><strong>LinkedIn:</strong> <a href={site.links.linkedin}>Sam Boeve</a></p>
+      <p><strong>GitHub:</strong> <a href={site.links.github}>SamBoeve</a></p>
+      <p class="note">{site.affiliation}</p>
+    </div>
+    <div class="dark-card">
+      <h2 class="head">Writing for companies</h2>
+      <p>
+        Blog posts, explainers and short articles on language, AI, cognition and learning, grounded in the research and
+        written for non-specialists.
+      </p>
+      <p>Past work: In-Mind Magazine, EOS Wetenschap, Lexima.</p>
+    </div>
+  </div>
+</Base>

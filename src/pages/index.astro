@@ -1,0 +1,76 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+import { writing } from '../data/writing';
+import PieceCard from '../components/PieceCard.astro';
+
+const featured = writing.slice(0, 3);
+const themes = [
+  {
+    title: 'Predictive reading',
+    text: 'How context lets readers anticipate words, and how this changes from childhood to adulthood and in dyslexia and second-language reading.',
+  },
+  {
+    title: 'Language models as tools',
+    text: 'Evaluating which language models give the best estimates of word predictability (surprisal), including systematic tests of Dutch models.',
+  },
+  {
+    title: 'Learning and bilingualism',
+    text: 'Statistical learning (automatic pattern learning), the link to language ability, and reading in a first and second language, including large eye-tracking corpora.',
+  },
+];
+---
+<Base>
+  <section class="hero">
+    <div class="hero-text">
+      <div class="kicker">Cognitive scientist · PhD researcher</div>
+      <h1>Let's talk about language, prediction and AI</h1>
+      <p class="lead">
+        I'm Sam, a PhD researcher at Ghent University (FWO fellow) studying prediction in reading and how it develops,
+        using eye tracking and large language models. I also write about language, AI and the mind for general audiences.
+      </p>
+      <div class="actions">
+        <a class="btn btn-primary" href="/publications">See my research</a>
+        <a class="btn btn-secondary" href="/writing">Read my writing</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      {site.portrait
+        ? <img class="portrait" src={site.portrait} alt="Portrait of Sam Boeve" width="280" height="340" />
+        : <div class="portrait-placeholder" role="img" aria-label="Placeholder for a portrait photo">[YOUR PORTRAIT PHOTO]</div>}
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>What I work on</h2>
+    <div class="cards">
+      {themes.map((t) => (
+        <div class="card">
+          <h3>{t.title}</h3>
+          <p>{t.text}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2>Recent writing</h2>
+      <a class="link-strong" href="/writing">All writing</a>
+    </div>
+    <div class="cards">
+      {featured.map((w) => <PieceCard piece={w} />)}
+    </div>
+  </section>
+
+  <section class="section cta">
+    <div>
+      <h2>Need clear writing on language, AI or the mind?</h2>
+      <p>
+        I write blog posts, explainers and short articles that turn research into something your audience actually
+        wants to read.
+      </p>
+    </div>
+    <a class="btn btn-light" href="/contact">Get in touch</a>
+  </section>
+</Base>
